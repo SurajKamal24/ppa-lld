@@ -1,4 +1,4 @@
-package singleresponsibilitypattern.conformation;
+package singleresponsibilityprinciple.conformation;
 
 import common.data.BioData;
 

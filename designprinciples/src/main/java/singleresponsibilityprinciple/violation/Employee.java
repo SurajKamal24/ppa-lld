@@ -1,4 +1,4 @@
-package singleresponsibilitypattern.violation;
+package singleresponsibilityprinciple.violation;
 
 import common.data.BioData;
 

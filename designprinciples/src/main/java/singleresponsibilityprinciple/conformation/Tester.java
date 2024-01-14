@@ -1,6 +1,4 @@
-package singleresponsibilitypattern.conformation;
-
-import singleresponsibilitypattern.conformation.Employee;
+package singleresponsibilityprinciple.conformation;
 
 public class Tester {
 
