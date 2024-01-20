@@ -4,7 +4,6 @@ package cricketscoreboard.subscribers;
 import cricketscoreboard.subscribers.publishers.CricketPublisher;
 import cricketscoreboard.subscribers.publishers.FootBallPublisher;
 import cricketscoreboard.subscribers.publishers.FootBallScorePublisher;
-import cricketscoreboard.subscribers.publishers.Publisher;
 
 import java.util.List;
 
@@ -16,27 +15,27 @@ public class PredictedScoreCricketSubscriber implements CricketSubscriber, FootB
     private int goals1;
     private int goals2;
     private float duration;
-    private List<Publisher> publishers;
+    private List<CricketPublisher> publishers;
 
-    public PredictedScoreCricketSubscriber(List<Publisher> publishers) {
+    public PredictedScoreCricketSubscriber(List<CricketPublisher> publishers) {
         this.publishers = publishers;
-        for (Publisher publisher : this.publishers) {
+        for (CricketPublisher publisher : this.publishers) {
             publisher.subscribe(this);
         }
     }
 
     @Override
-    public void update(Publisher publisher) {
-        if (publisher instanceof FootBallScorePublisher) {
-            this.goals1 = publisher.getGoals1();
-        } else {
-            this.runs = publisher.getRuns();
-            this.wickets = publisher.getWickets();
-            this.overs = publisher.getOvers();
-        }
+    public void update(CricketPublisher publisher) {
+        this.runs = publisher.getRuns();
+        this.wickets = publisher.getWickets();
+        this.overs = publisher.getOvers();
 
         // additional logic
         System.out.println("In PredictedScoreSubscriber : " + this.runs + " runs," + this.wickets + " wickets," + this.overs + " overs.");
+    }
+
+    public void update(FootBallPublisher publisher) {
+
     }
 
     public int getRuns() {
@@ -51,17 +50,9 @@ public class PredictedScoreCricketSubscriber implements CricketSubscriber, FootB
         return overs;
     }
 
-    public List<Publisher> getPublisher() {
+    public List<CricketPublisher> getPublisher() {
         return publishers;
     }
 
-    @Override
-    public void update(CricketPublisher publisher) {
-        
-    }
 
-    @Override
-    public void update(FootBallPublisher publisher) {
-
-    }
 }

@@ -6,6 +6,4 @@ public interface CricketSubscriber {
 
     void update(CricketPublisher publisher);
 
-
-
 }

@@ -1,6 +1,7 @@
 package cricketscoreboard.subscribers.publishers;
 
 import cricketscoreboard.subscribers.CricketSubscriber;
+import cricketscoreboard.subscribers.FootBallSubscriber;
 
 import java.util.List;
 
@@ -12,17 +13,17 @@ public class FootBallScorePublisher implements FootBallPublisher {
     private List<CricketSubscriber> cricketSubscribers;
 
     @Override
-    public void subscribe(CricketSubscriber cricketSubscriber) {
+    public void subscribe(FootBallSubscriber subscriber) {
 
     }
 
     @Override
-    public void unsubscribe(CricketSubscriber cricketSubscriber) {
+    public void unsubscribe(FootBallSubscriber subscriber) {
 
     }
 
     @Override
-    public void notifyAll(int runs, int wickets, float overs) {
+    public void notifyAll(int goals1, int goals2, float duration) {
 
     }
 

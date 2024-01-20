@@ -10,18 +10,18 @@ public class SonyCricketScoreBoardPublisher implements CricketPublisher {
     private int runs;
     private int wickets;
     private float overs;
-    private List<CricketSubscriber> cricketSubscribers;
+    private List<CricketSubscriber> subscribers;
 
     public SonyCricketScoreBoardPublisher() {
-        this.cricketSubscribers = new ArrayList<>();
+        this.subscribers = new ArrayList<>();
     }
 
     public void subscribe(CricketSubscriber cricketSubscriber) {
-        this.cricketSubscribers.add(cricketSubscriber);
+        this.subscribers.add(cricketSubscriber);
     }
 
     public void unsubscribe(CricketSubscriber cricketSubscriber) {
-        this.cricketSubscribers.remove(cricketSubscriber);
+        this.subscribers.remove(cricketSubscriber);
     }
 
     public void notifyAll(int runs, int wickets, float overs) {
@@ -29,7 +29,7 @@ public class SonyCricketScoreBoardPublisher implements CricketPublisher {
         this.wickets = wickets;
         this.overs = overs;
 
-        for (CricketSubscriber cricketSubscriber : cricketSubscribers) {
+        for (CricketSubscriber cricketSubscriber : subscribers) {
             cricketSubscriber.update(this);
         }
 
@@ -37,17 +37,20 @@ public class SonyCricketScoreBoardPublisher implements CricketPublisher {
 
     @Override
     public int getRuns() {
-        return 0;
+        return runs;
     }
 
     @Override
     public float getOvers() {
-        return 0;
+        return overs;
     }
 
     @Override
     public int getWickets() {
-        return 0;
+        return wickets;
     }
 
+    public List<CricketSubscriber> getSubscribers() {
+        return subscribers;
+    }
 }

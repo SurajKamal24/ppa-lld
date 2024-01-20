@@ -6,21 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ESPNCricketScoreBoardPublisher implements CricketPublisher {
+
     private int runs;
     private int wickets;
     private float overs;
-    private List<CricketSubscriber> cricketSubscribers;
+    private List<CricketSubscriber> subscribers;
 
     public ESPNCricketScoreBoardPublisher() {
-        this.cricketSubscribers = new ArrayList<>();
+        this.subscribers = new ArrayList<>();
     }
 
-    public void subscribe(CricketSubscriber cricketSubscriber) {
-        this.cricketSubscribers.add(cricketSubscriber);
+    public void subscribe(CricketSubscriber subscriber) {
+        this.subscribers.add(subscriber);
     }
 
-    public void unsubscribe(CricketSubscriber cricketSubscriber) {
-        this.cricketSubscribers.remove(cricketSubscriber);
+    public void unsubscribe(CricketSubscriber subscriber) {
+        this.subscribers.remove(subscriber);
     }
 
     public void notifyAll(int runs, int wickets, float overs) {
@@ -28,8 +29,8 @@ public class ESPNCricketScoreBoardPublisher implements CricketPublisher {
         this.wickets = wickets;
         this.overs = overs;
 
-        for (CricketSubscriber cricketSubscriber : cricketSubscribers) {
-            cricketSubscriber.update(this);
+        for (CricketSubscriber subscriber : subscribers) {
+            subscriber.update(this);
         }
 
     }
@@ -49,4 +50,7 @@ public class ESPNCricketScoreBoardPublisher implements CricketPublisher {
         return 0;
     }
 
+    public List<CricketSubscriber> getSubscribers() {
+        return subscribers;
+    }
 }

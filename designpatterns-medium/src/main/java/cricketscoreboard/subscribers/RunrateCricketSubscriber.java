@@ -1,7 +1,7 @@
 package cricketscoreboard.subscribers;
 
 
-import cricketscoreboard.subscribers.publishers.Publisher;
+import cricketscoreboard.subscribers.publishers.CricketPublisher;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ public class RunrateCricketSubscriber implements CricketSubscriber {
     private int runs;
     private int wickets;
     private float overs;
-    private List<Publisher> publishers;
+    private List<CricketPublisher> publishers;
 
-    public RunrateCricketSubscriber(List<Publisher> publishers) {
-        this.publisher = publisher;
+    public RunrateCricketSubscriber(List<CricketPublisher> publishers) {
+        this.publishers = publishers;
     }
 
     @Override
-    public void update(Publisher publisher) {
+    public void update(CricketPublisher publisher) {
         this.runs = publisher.getRuns();
         this.overs = publisher.getOvers();
         // additional logic
@@ -36,7 +36,7 @@ public class RunrateCricketSubscriber implements CricketSubscriber {
         return overs;
     }
 
-    public List<Publisher> getPublisher() {
+    public List<CricketPublisher> getPublisher() {
         return publishers;
     }
 }
