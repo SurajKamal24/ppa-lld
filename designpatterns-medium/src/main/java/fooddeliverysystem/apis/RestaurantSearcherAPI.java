@@ -23,6 +23,6 @@ public class RestaurantSearcherAPI {
             filters.add(new CuisinesTypeFilter(cuisineTypes));
         if (rating != null)
             filters.add(new StarRatingFilter(rating));
-        return new RestaurantSearcher().search(restaurantName, filters);;
+        return new RestaurantSearcher().search(restaurantName, filters);
     }
 }

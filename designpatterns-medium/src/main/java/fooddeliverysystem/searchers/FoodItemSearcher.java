@@ -1,6 +1,9 @@
 package fooddeliverysystem.searchers;
 
+import fooddeliverysystem.data.DataAccessResult;
+import fooddeliverysystem.data.DataAccessor;
 import fooddeliverysystem.data.FoodItem;
+import fooddeliverysystem.data.DataAccessObjectConverter;
 import fooddeliverysystem.filters.FoodItemFilter;
 
 import java.util.ArrayList;

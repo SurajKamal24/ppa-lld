@@ -11,4 +11,8 @@ public class DataAccessObjectConverter {
     public static List<CartItem> convertToCartItems(DataAccessResult result) {
         return null;
     }
+
+    public static List<FoodItem> convertToFoodItems(DataAccessResult result) {
+        return null;
+    }
 }
