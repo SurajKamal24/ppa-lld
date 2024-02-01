@@ -50,6 +50,6 @@ public class Main {
         concurrentSum(nums);
         long end1 = System.currentTimeMillis();
         System.out.println(end1 - start1);
-        
+
     }
 }
