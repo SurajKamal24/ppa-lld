@@ -3,11 +3,9 @@ package second;
 public class Worker implements Runnable {
 
     private final NumberStore numberStore;
-    private final Object lock;
 
-    public Worker(NumberStore numberStore, Object lock) {
+    public Worker(NumberStore numberStore) {
         this.numberStore = numberStore;
-        this.lock = lock;
     }
 
 
@@ -15,7 +13,7 @@ public class Worker implements Runnable {
     public void run() {
         synchronized (numberStore) {
             for (int i = 0; i < 1000000; i++) {
-                numberStore.increment(lock);
+                numberStore.increment();
             }
         }
 

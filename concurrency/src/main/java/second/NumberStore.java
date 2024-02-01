@@ -2,14 +2,12 @@ package second;
 
 public class NumberStore {
     private int x;
-    private Object lock;
 
     public NumberStore() {
         this.x = 0;
-        this.lock = new Object();
     }
 
-    public void increment(Object lock) {
+    public void increment() {
         x++;
 
 
@@ -26,7 +24,7 @@ public class NumberStore {
     // T1 F(5) | T2 F(5) | T1 x = 6 | T2 x = 6
     // Race condition
 
-    public int getX() {
+    public synchronized int getX() {
         return x;
     }
 
