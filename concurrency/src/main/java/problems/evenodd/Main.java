@@ -4,9 +4,14 @@ public class Main {
     public static final int limit = 20;
     public static volatile int curr = 1;
     public static void main(String[] args) {
-        Thread t1 = new Thread(new EvenWorker("even"));
-        Thread t2 = new Thread(new OddWorker("odd"));
+        Thread t1 = new Thread(new EvenWorker("even-1"));
+        Thread t2 = new Thread(new EvenWorker("even-2"));
+        Thread t3 = new Thread(new OddWorker("odd-1"));
+        Thread t4 = new Thread(new OddWorker("odd-2"));
         t1.start();
         t2.start();
+        t3.start();
+        t4.start();
+
     }
 }
